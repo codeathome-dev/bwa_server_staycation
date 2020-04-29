@@ -1,0 +1,38 @@
+<div class="tab-pane fade" id="add-item" role="tabpanel" aria-labelledby="profile-tab">
+  <div class="card shadow mb-4 mt-2">
+    <div class="card-body">
+      <form action="/admin/item" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="name">Title</label>
+          <input type="text" class="form-control" name="title" placeholder="Enter title" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Price</label>
+          <input type="number" class="form-control" name="price" placeholder="Enter price" required>
+        </div>
+        <div class="form-group">
+          <label for="name">City</label>
+          <input type="text" class="form-control" name="city" placeholder="Enter city" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Category</label>
+          <select class="form-control" name="categoryId">
+            <option value="">--- Category ---</option>
+            <% for(let i = 0; i< category.length; i++){ %>
+            <option value="<%= category[i].id %>"><%= category[i].name %></option>
+            <%}%>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name">Image</label>
+          <input type="file" class="form-control" name="image" multiple required>
+        </div>
+        <div class="form-group">
+          <label for="name">Description</label>
+          <textarea name="about" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+</div>

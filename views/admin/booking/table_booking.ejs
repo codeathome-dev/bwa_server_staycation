@@ -1,0 +1,41 @@
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Invoice</th>
+            <th>Date</th>
+            <th>Title</th>
+            <th>Name Member</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i = 0; i < booking.length; i++){ %>
+          <tr>
+            <td><%= i + 1 %></td>
+            <td>#<%= booking[i].invoice %></td>
+            <td><%= booking[i].bookingStartDate.toLocaleString().split(',')[0] %> s/d
+              <%= booking[i].bookingEndDate.toLocaleString().split(',')[0] %>
+            </td>
+            <td><%= booking[i].itemId.title %></td>
+            <td><%= booking[i].memberId.firstName %> <%= booking[i].memberId.lastName %></td>
+            <td><%= booking[i].payments.status %></td>
+            <td>
+              <a href="/admin/booking/<%= booking[i].id %>" class="btn btn-success btn-circle btn-sm button-update"><i
+                  class=" fas fa-eye"></i></a>
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
