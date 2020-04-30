@@ -276,5 +276,13 @@ Dengan mengikuti kelas online ini, kalian mendapatkan akses ke serangkaian video
 7. Semua tools yang diperlukan gratis / open-source
 
 
+### Info Lebih Lengkap
+Website : [www.buildwithangga.com](https://buildwithangga.com/)  
+Instagram : [@codeathome](https://www.instagram.com/codeathome/)  
+WhatsApp : [085955316973](https://wa.me/6285955316973)  
+github backend : [codeathome-dev](https://github.com/codeathome-dev)  
+---
+
+
 
 ###### tags: `mern` `classbwa` `codeathome`
