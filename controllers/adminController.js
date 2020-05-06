@@ -48,7 +48,8 @@ module.exports = {
 
       req.session.user = {
         id: user.id,
-        username: user.username
+        username: user.username,
+        role: user.role
       }
 
       res.redirect('/admin/dashboard');
@@ -311,7 +312,10 @@ module.exports = {
       const item = await Item.findOne({ _id: id })
         .populate({ path: 'imageId', select: 'id imageUrl' })
         .populate({ path: 'categoryId', select: 'id name' });
+
+      console.log(item)
       const category = await Category.find();
+      // console.log(category)
       const alertMessage = req.flash('alertMessage');
       const alertStatus = req.flash('alertStatus');
       const alert = { message: alertMessage, status: alertStatus };
@@ -324,6 +328,7 @@ module.exports = {
         user: req.session.user
       });
     } catch (error) {
+      console.log(error)
       req.flash('alertMessage', `${error.message}`);
       req.flash('alertStatus', 'danger');
       res.redirect('/admin/item');

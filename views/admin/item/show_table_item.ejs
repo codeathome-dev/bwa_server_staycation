@@ -23,15 +23,17 @@
               <td><%= item[i].country %></td>
               <td><%= item[i].city %></td>
               <td>
+                <% if(user.role == 'admin') { %>
                 <form action="/admin/item/<%= item[i].id %>/delete?_method=DELETE" method="POST">
                   <a href="/admin/item/show-image/<%= item[i].id %>" class="btn btn-info btn-circle btn-sm"><i
                       class="fas fa-image"></i></a>
                   <a href="/admin/item/<%= item[i].id %>" class="btn btn-warning btn-circle btn-sm "><i
                       class="fas fa-edit"></i></a>
                   <button type="submit" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
-                  <a href="/admin/item/show-detail-item/<%= item[i].id %>" class="btn btn-success btn-circle btn-sm"><i
-                      class="fas fa-plus"></i></a>
                 </form>
+                <% } %>
+                <a href="/admin/item/show-detail-item/<%= item[i].id %>" class="btn btn-success btn-circle btn-sm"><i
+                    class="fas fa-plus"></i></a>
               </td>
             </tr>
             <% } %>

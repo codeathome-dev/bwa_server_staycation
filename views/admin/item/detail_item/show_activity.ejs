@@ -19,7 +19,9 @@
               <input type="file" class="form-control" name="image" required>
             </div>
             <input type="hidden" value="<%= itemId %>" name="itemId">
+            <% if(user.role == 'admin') { %>
             <button type="submit" class="btn btn-primary">save</button>
+            <% } %>
           </form>
         </div>
         <div class="col-md-7">
@@ -31,7 +33,9 @@
                   <th>Name</th>
                   <th>Type</th>
                   <th>Image URL</th>
+                  <% if(user.role == 'admin') { %>
                   <th>Action</th>
+                  <% } %>
                 </tr>
               </thead>
               <tbody>
@@ -44,6 +48,7 @@
                     <img src="https://admin-staycation.herokuapp.com/<%= activity[i].imageUrl %>" alt="imageUrl"
                       width="70px">
                   </td>
+                  <% if(user.role == 'admin') { %>
                   <td>
                     <form action="/admin/item/<%= itemId %>/activity/<%= activity[i].id %>?_method=DELETE"
                       method="POST">
@@ -54,6 +59,7 @@
                           class="fas fa-trash"></i></button>
                     </form>
                   </td>
+                  <% } %>
                 </tr>
                 <% } %>
               </tbody>

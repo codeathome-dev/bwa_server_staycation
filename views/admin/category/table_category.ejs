@@ -2,9 +2,11 @@
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <!-- Button trigger modal -->
+    <% if(user.role == 'admin') { %>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-modal">
       <i class="fas fa-plus"></i>
     </button>
+    <% } %>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -13,7 +15,9 @@
           <tr>
             <th>No</th>
             <th>Name</th>
+            <% if(user.role == 'admin') { %>
             <th>Action</th>
+            <% } %>
           </tr>
         </thead>
         <tbody>
@@ -21,6 +25,7 @@
           <tr>
             <td><%= i + 1 %></td>
             <td><%= category[i].name %></td>
+            <% if(user.role == 'admin') { %>
             <td>
               <form action="/admin/category/<%= category[i].id %>?_method=DELETE" method="POST">
                 <a href="javascript:void();" type="button" class="btn btn-warning btn-circle btn-sm button-update"
@@ -28,6 +33,7 @@
                 <button type="submit" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
               </form>
             </td>
+            <% } %>
           </tr>
           <% } %>
         </tbody>
