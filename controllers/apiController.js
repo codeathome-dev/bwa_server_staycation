@@ -21,7 +21,7 @@ module.exports = {
           path: 'itemId',
           select: '_id title country city isPopular  imageId',
           perDocumentLimit: 4,
-          option: { sort: { sumBooking: -1 } },
+          options: { sort: { sumBooking: -1 } },
           populate: {
             path: 'imageId',
             select: '_id imageUrl',
